@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchProducts() {
     try {
-        const response = await fetch("[Your_Flask_api_endpoint_URL]");
+        const response = await fetch('http://127.0.0.1:5000/products');
         if (!response.ok) throw new Error('Failed to fetch');
         const products = await response.json();
         renderProducts(products);
@@ -50,7 +50,7 @@ function renderProducts(products) {
             // Added card-entrance class and inline style for staggered delay
             card.className = 'card-entrance group flex flex-col overflow-hidden bg-white rounded-3xl product-card';
             card.style.animationDelay = `${index * 100}ms`; // Staggered animation
-            
+
             card.innerHTML = `
                 <!-- Top Half - Beige Background with Shapes -->
              <div class="relative flex h-72 w-full items-center justify-center overflow-hidden bg-[#C7DCD3] p-8 transition-colors duration-500 group-hover:bg-[#B8D3C8]">

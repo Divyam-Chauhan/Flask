@@ -45,15 +45,7 @@
     opacity: 0; /* Start hidden */
 }
 
-/* Floating shapes animation - smoother */
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-}
-
-.product-card:hover .floating-shape {
-    animation: float 4s ease-in-out infinite;
-}
+/* Removed floating shape animation for a cleaner look */
 
 /* Button Shine Effect */
 .btn-shine {
@@ -82,16 +74,27 @@
     left: 100%;
 }
 
-/* Background Animation */
-@keyframes gradient-xy {
-    0%, 100% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
+/* Premium E-commerce Background */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.animate-bg-gradient {
-    background: linear-gradient(120deg, #fdfbf7, #f7f4ed, #fffdf5);
-    background-size: 200% 200%;
-    animation: gradient-xy 20s ease infinite;
+.premium-light-bg {
+    background: linear-gradient(-45deg, #fdfbf7, #f4f5f8, #fdfbf7, #fdf8f5);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+}
+
+/* Swatch hover */
+.color-swatch {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    border: 2px solid #fff;
+}
+.color-swatch:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
 }
 
 /* Loader animation */

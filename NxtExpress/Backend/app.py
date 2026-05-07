@@ -84,4 +84,4 @@ products = [
 def get_products():
     return products
 
-app.run(debug=true)
+app.run(debug=True)

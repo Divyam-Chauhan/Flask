@@ -2,6 +2,28 @@
 
 A modern, premium e-commerce web application.
 
+## Installation & Setup
+
+To run the backend locally, you need to install the required Python dependencies.
+
+1. **Install Flask:**
+   Flask is the core web framework used to serve the API.
+   ```bash
+   pip install flask
+   ```
+
+2. **Install Flask-CORS:**
+   This extension is required to allow your frontend to safely request data from the backend without being blocked by browser security.
+   ```bash
+   pip install flask-cors
+   ```
+
+3. **Start the Backend:**
+   Once the dependencies are installed, you can start the development server:
+   ```bash
+   python NxtExpress/Backend/app.py
+   ```
+
 ## Backend Architecture
 
 The backend is built using Flask, a lightweight Python web framework. It handles product data management and serves it to the frontend via a REST API.

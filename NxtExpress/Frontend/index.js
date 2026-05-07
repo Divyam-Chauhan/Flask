@@ -46,32 +46,29 @@ function renderProducts(products) {
         }
 
         products.forEach((product, index) => {
+            const bgColors = ['#E8F3F1', '#FDF1EB', '#F3EEF5', '#FDF8E8', '#EBF4F6'];
+            const hoverColors = ['#D1E7E3', '#FCE3D7', '#E7DFEC', '#FCEFD0', '#D8EAEF'];
+            const bgColor = bgColors[index % bgColors.length];
+            const hoverColor = hoverColors[index % hoverColors.length];
+
             const card = document.createElement('div');
             // Added card-entrance class and inline style for staggered delay
-            card.className = 'card-entrance group flex flex-col overflow-hidden bg-white rounded-3xl product-card';
+            card.className = 'card-entrance group flex flex-col overflow-hidden bg-white border border-slate-100 rounded-2xl product-card';
             card.style.animationDelay = `${index * 100}ms`; // Staggered animation
 
             card.innerHTML = `
-                <!-- Top Half - Beige Background with Shapes -->
-             <div class="relative flex h-72 w-full items-center justify-center overflow-hidden bg-[#C7DCD3] p-8 transition-colors duration-500 group-hover:bg-[#B8D3C8]">
-
-
-
-
-
-
-                    <!-- Background Decorative Shapes -->
-                    <div class="absolute right-[-20px] top-[-20px] h-32 w-32 rounded-full shape-circle-border floating-shape" style="animation-delay: 0s"></div>
-                    <div class="absolute bottom-12 left-6 h-4 w-4 rounded-full bg-[#FF6B6B]/20 floating-shape" style="animation-delay: 0.2s"></div>
-                    <div class="absolute right-16 top-16 h-3 w-3 rounded-full bg-[#4ECDC4]/20 floating-shape" style="animation-delay: 0.5s"></div>
-                    <div class="absolute left-[-10%] bottom-[-10%] h-40 w-40 rounded-full bg-[#FFD166]/10 floating-shape" style="animation-delay: 0.7s"></div>
+                <!-- Top Half - Premium Pastel Background -->
+             <div class="relative flex h-72 w-full items-center justify-center overflow-hidden transition-colors duration-500"
+                  style="background-color: ${bgColor};"
+                  onmouseover="this.style.backgroundColor='${hoverColor}'"
+                  onmouseout="this.style.backgroundColor='${bgColor}'">
                     
                     <!-- Product Image -->
-                    <div class="relative z-10 h-52 w-52 flex items-center justify-center">
+                    <div class="relative z-10 h-52 w-52 flex items-center justify-center mix-blend-multiply">
                         <img 
                             src="${product.image}" 
                             alt="${product.name}"
-                            class="h-full w-full object-cover rounded-xl"
+                            class="h-full w-full object-contain drop-shadow-xl"
                             loading="lazy"
                         />
                     </div>
@@ -94,11 +91,11 @@ function renderProducts(products) {
                         ${product.description}
                     </p>
 
-                    <!-- Color Dots -->
-                    <div class="mb-6 flex justify-center gap-3 opacity-60 transition-opacity group-hover:opacity-100">
-                        <div class="h-2.5 w-2.5 rounded-full bg-[#FF6B6B] ring-1 ring-transparent hover:ring-[#FF6B6B] ring-offset-2 transition-all cursor-pointer"></div>
-                        <div class="h-2.5 w-2.5 rounded-full bg-[#4ECDC4] ring-1 ring-transparent hover:ring-[#4ECDC4] ring-offset-2 transition-all cursor-pointer"></div>
-                        <div class="h-2.5 w-2.5 rounded-full bg-[#FFD166] ring-1 ring-transparent hover:ring-[#FFD166] ring-offset-2 transition-all cursor-pointer"></div>
+                    <!-- Premium Color Dots -->
+                    <div class="mb-6 flex justify-center gap-3 opacity-80 transition-opacity group-hover:opacity-100">
+                        <div class="h-3 w-3 rounded-full bg-[#FF6B6B] color-swatch transition-all cursor-pointer"></div>
+                        <div class="h-3 w-3 rounded-full bg-[#4ECDC4] color-swatch transition-all cursor-pointer"></div>
+                        <div class="h-3 w-3 rounded-full bg-[#292D32] color-swatch transition-all cursor-pointer"></div>
                     </div>
 
                     <!-- Price and Button Row -->
